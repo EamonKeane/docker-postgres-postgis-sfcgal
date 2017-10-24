@@ -5,19 +5,19 @@ MAINTAINER F4<contact@f4-group.com>
 
 #from http://postgis.net/source
 ENV POSTGIS_MAJOR 2.3
-ENV POSTGIS_VERSION 2.3.3
+ENV POSTGIS_VERSION 2.3.2
 ENV POSTGIS http://download.osgeo.org/postgis/source/postgis-$POSTGIS_VERSION.tar.gz
 
 #from http://trac.osgeo.org/geos/
-ENV GEOS http://download.osgeo.org/geos/geos-3.5.1.tar.bz2
+ENV GEOS http://download.osgeo.org/geos/geos-3.6.1.tar.bz2
 #from http://trac.osgeo.org/gdal/wiki/DownloadSource
-ENV GDAL http://download.osgeo.org/gdal/2.1.4/gdal-2.1.4.tar.gz
+ENV GDAL http://download.osgeo.org/gdal/2.1.3/gdal-2.1.3.tar.gz
 #from http://proj4.org/download.html
-ENV PROJ http://download.osgeo.org/proj/proj-4.9.3.tar.gz
+ENV PROJ http://download.osgeo.org/proj/proj-4.9.1.tar.gz
 #from https://www.cgal.org/releases.html
 ENV CGAL https://github.com/CGAL/cgal/releases/download/releases%2FCGAL-4.10.1/CGAL-4.10.1.tar.xz
 #from https://github.com/Oslandia/SFCGAL/releases
-ENV SFCGAL https://github.com/Oslandia/SFCGAL/archive/v1.3.2.tar.gz
+ENV SFCGAL https://github.com/Oslandia/SFCGAL/archive/v1.3.0.tar.gz
 
 #TODO make PROCESSOR_COUNT dynamic
 #built by docker.io, so reducing to 1. increase to match build server processor count as needed
@@ -29,9 +29,7 @@ ENV PROCESSOR_COUNT 1
 #lib building packages
 #for address_standardizer
 RUN apt-get -y update && apt-get -y install \
-    build-essential postgresql-server-dev-$PG_MAJOR libxml2-dev libjson0-dev \
-    cmake libboost-dev libgmp-dev libmpfr-dev libboost-thread-dev libboost-system-dev \
-    libpcre3-dev
+    build-essential postgresql-server-dev-$PG_MAJOR libxml2.9.4 libjson0.12.1
 
 WORKDIR /install-postgis
 
