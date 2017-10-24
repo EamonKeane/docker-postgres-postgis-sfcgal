@@ -29,7 +29,9 @@ ENV PROCESSOR_COUNT 1
 #lib building packages
 #for address_standardizer
 RUN apt-get -y update && apt-get -y install \
-    build-essential postgresql-server-dev-$PG_MAJOR libxml2 libjson0
+    build-essential postgresql-server-dev-$PG_MAJOR libxml2 libjson0 \
+    cmake libboost-dev libgmp-dev libmpfr-dev libboost-thread-dev libboost-system-dev \
+    libpcre3-dev
 
 WORKDIR /install-postgis
 
